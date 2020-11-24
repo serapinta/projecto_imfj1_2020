@@ -1,10 +1,10 @@
-# Introdução à Matemática e Física Para Videojogos I / Fundamentos de Programação - Final Project
+# Introdução à Matemática e Física Para Videojogos I - Final Project
 
 This is a very rudimentary, wireframe 3d engine.
 
-![alt text](screenshots/game.png "Sample application")
+![alt text](screenshots/sphere.png "Sample application")
 
-This serves as a basis for the "Introdução à Matemática e Física Para Videojogos I" and Fundamentos de Programação course, on the [Licenciatura em Videojogos][lv] da
+This serves as a basis for the "Introdução à Matemática e Física Para Videojogos I" final project, on the [Licenciatura em Videojogos][lv] da
 [Universidade Lusófona de Humanidades e Tecnologias][ULHT] in Lisbon.
 
 The engine was built using:
@@ -14,8 +14,6 @@ The engine was built using:
 
 There is a set of sample applications that can be run by using:
 `py.exe <sample_name>.py` or `python <sample_name>.py` or `python3.6 <sample_name>.py`, depending on your Python installation.
-
-## Assignment
 
 ## Assignment
 
