@@ -78,6 +78,26 @@ def main():
         # Clears the screen
         screen.fill((0, 0, 0))
 
+        # Get the pressed keys 
+        keys=pygame.key.get_pressed()
+
+        # Returns the correct rotation value
+        rotation=Quaternion.AngleAxis(axis, math.radians(angle)*delta_time)
+
+        # Handle the movement
+        if keys[pygame.K_LEFT]:
+            tsphere.rotation*=rotation
+        if keys[pygame.K_RIGHT]:
+            tsphere.rotation*=rotation
+        if keys[pygame.K_UP]:
+            tsphere.rotation*=rotation
+        if keys[pygame.K_DOWN]:
+            tsphere.rotation*=rotation
+        if keys[pygame.K_PAGEUP]:
+            tsphere.rotation*=rotation
+        if keys[pygame.K_PAGEDOWN]:
+            tsphere.rotation*=rotation
+
         # Render the scene
         scene.render(screen)
 
