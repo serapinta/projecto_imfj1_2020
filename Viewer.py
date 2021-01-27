@@ -77,9 +77,9 @@ def main():
 
         # Clears the screen
         screen.fill((0, 0, 0))
-
-        # Get the pressed keys 
-        keys=pygame.key.get_pressed()
+        
+        # 
+        keys = pygame.key.get_pressed()
 
         # Returns the correct rotation value
         rotation=Quaternion.AngleAxis(axis, math.radians(angle)*delta_time)
@@ -98,6 +98,26 @@ def main():
         if keys[pygame.K_PAGEDOWN]:
             tsphere.rotation*=rotation
 
+        # Get the pressed keys     
+        # Up
+        if keys[pygame.K_w]:
+            tsphere.position = Vector3(tsphere.position.x+0.1, tsphere.position.y, tsphere.position.z)
+        # Dowm
+        if keys[pygame.K_s]:
+            tsphere.position = Vector3(tsphere.position.x-0.1, tsphere.position.y, tsphere.position.z)
+        # Right
+        if keys[pygame.K_a]:
+            tsphere.position = Vector3(tsphere.position.x, tsphere.position.y-0.1, tsphere.position.z)
+        # Left
+        if keys[pygame.K_d]:
+            tsphere.position = Vector3(tsphere.position.x, tsphere.position.y+0.1, tsphere.position.z)
+        # Forwards
+        if keys[pygame.K_q]:
+            tsphere.position = Vector3(tsphere.position.x, tsphere.position.y, tsphere.position.z+0.1)
+        # Backwards
+        if keys[pygame.K_e]:
+            tsphere.position = Vector3(tsphere.position.x, tsphere.position.y, tsphere.position.z-0.1)
+
         # Render the scene
         scene.render(screen)
 
@@ -108,6 +128,9 @@ def main():
         delta_time = time.time() - prev_time
         prev_time = time.time()
 
+        # Limits frame rate
+        while time.time() -prev_time < 0.0069:
+            continue
 
 # Run the main function
 main()
