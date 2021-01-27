@@ -42,6 +42,14 @@ def main():
     pygame.mouse.set_visible(True)
     pygame.event.set_grab(False)
 
+    # Create a test sphere
+    tsphere = Object3d("TestSphere")
+    tsphere.scale = Vector3(1, 1, 1)
+    tsphere.positon = Vector3(0, 0, 0)
+    tsphere.mesh = Mesh.create_sphere((1, 1, 1), 5, 5)
+    tsphere.material= Material(Color(0,0,1), "Blue World")
+    scene.add_object(tsphere)
+
     # Game loop
     while True:
         # Process OS events
