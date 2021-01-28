@@ -150,7 +150,8 @@ class Mesh:
 
     @staticmethod
     def create_pyramid(nSides, mesh=None):
-    """Method gives the pyramide form"""
+        """Method gives the pyramide form"""
+
         # Create mesh if one was not given
         if mesh is None:
             mesh = Mesh("Pyramid")
