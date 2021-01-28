@@ -42,13 +42,13 @@ def main():
     pygame.mouse.set_visible(True)
     pygame.event.set_grab(False)
 
-    # Create a test sphere
-    tsphere = Object3d("TestSphere")
-    tsphere.scale = Vector3(1, 1, 1)
-    tsphere.positon = Vector3(0, 0, 0)
-    tsphere.mesh = Mesh.create_sphere((1, 1, 1), 5, 5)
-    tsphere.material= Material(Color(0,0,1), "Blue World")
-    scene.add_object(tsphere)
+    # Create a test pyramid
+    pyramid = Object3d("Tespyramid")
+    pyramid.scale = Vector3(1, 1, 1)
+    pyramid.positon = Vector3(0, 0, 0)
+    pyramid.mesh = Mesh.create_pyramid(4)
+    pyramid.material= Material(Color(0,0,1), "Blue World")
+    scene.add_object(pyramid)
 
     # Game loop
     while True:
@@ -78,7 +78,7 @@ def main():
         # Clears the screen
         screen.fill((0, 0, 0))
         
-        # 
+        # Key press value
         keys = pygame.key.get_pressed()
 
         # Returns the correct rotation value
@@ -86,37 +86,37 @@ def main():
 
         # Handle the movement
         if keys[pygame.K_LEFT]:
-            tsphere.rotation*=rotation
+            pyramid.rotation*=rotation
         if keys[pygame.K_RIGHT]:
-            tsphere.rotation*=rotation
+            pyramid.rotation*=rotation
         if keys[pygame.K_UP]:
-            tsphere.rotation*=rotation
+            pyramid.rotation*=rotation
         if keys[pygame.K_DOWN]:
-            tsphere.rotation*=rotation
+            pyramid.rotation*=rotation
         if keys[pygame.K_PAGEUP]:
-            tsphere.rotation*=rotation
+            pyramid.rotation*=rotation
         if keys[pygame.K_PAGEDOWN]:
-            tsphere.rotation*=rotation
+            pyramid.rotation*=rotation
 
         # Get the pressed keys     
         # Up
         if keys[pygame.K_w]:
-            tsphere.position = Vector3(tsphere.position.x+0.1, tsphere.position.y, tsphere.position.z)
+            pyramid.position = Vector3(pyramid.position.x+0.1, pyramid.position.y, pyramid.position.z)
         # Dowm
         if keys[pygame.K_s]:
-            tsphere.position = Vector3(tsphere.position.x-0.1, tsphere.position.y, tsphere.position.z)
+            pyramid.position = Vector3(pyramid.position.x-0.1, pyramid.position.y, pyramid.position.z)
         # Right
         if keys[pygame.K_a]:
-            tsphere.position = Vector3(tsphere.position.x, tsphere.position.y-0.1, tsphere.position.z)
+            pyramid.position = Vector3(pyramid.position.x, pyramid.position.y-0.1, pyramid.position.z)
         # Left
         if keys[pygame.K_d]:
-            tsphere.position = Vector3(tsphere.position.x, tsphere.position.y+0.1, tsphere.position.z)
+            pyramid.position = Vector3(pyramid.position.x, pyramid.position.y+0.1, pyramid.position.z)
         # Forwards
         if keys[pygame.K_q]:
-            tsphere.position = Vector3(tsphere.position.x, tsphere.position.y, tsphere.position.z+0.1)
+            pyramid.position = Vector3(pyramid.position.x, pyramid.position.y, pyramid.position.z+0.1)
         # Backwards
         if keys[pygame.K_e]:
-            tsphere.position = Vector3(tsphere.position.x, tsphere.position.y, tsphere.position.z-0.1)
+            pyramid.position = Vector3(pyramid.position.x, pyramid.position.y, pyramid.position.z-0.1)
 
         # Render the scene
         scene.render(screen)

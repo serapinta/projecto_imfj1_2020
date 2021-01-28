@@ -3,9 +3,10 @@
 import time
 import math
 import pygame
-from vector3 import Vector3
 import matrix4
+import numpy as np
 
+from vector3 import Vector3
 
 class Mesh:
     """Mesh class.
@@ -145,6 +146,34 @@ class Mesh:
                          Vector3(size[0] * 0.5, 0),
                          Vector3(0, size[1] * 0.5, 0), mesh)
 
+        return mesh
+
+    @staticmethod
+    def create_pyramid(nSides, mesh=None):
+    """Method gives the pyramide form"""
+        # Create mesh if one was not given
+        if mesh is None:
+            mesh = Mesh("Pyramid")
+        vertex=[]
+        height=1
+        radius=1
+        # Get equidistant points on a circule
+        for i in range(nSides):
+            vertex.append(Vector3(radius*np.cos(i*(2*np.pi/ nSides)),
+            -1, radius*np.sin(i*(2*np.pi/nSides))))
+        # Create triangules and its height
+        for i in range(len(vertex)):
+            if i != 0:
+                # creates face triangules
+                Mesh.create_tri(vertex[i-1], Vector3(0, height, 0), vertex[i], mesh)
+                # creates base triangules
+                Mesh.create_tri(vertex[i-1], Vector3(0, -1, 0), vertex[i], mesh)
+            else:
+                # creates face triangules
+                Mesh.create_tri(vertex[nSides-1],Vector3(0, height, 0), 
+                vertex[0], mesh)
+                # creates base triangules
+                Mesh.create_tri(vertex[nSides-1], Vector3(0, -1, 0), vertex[0], mesh)
         return mesh
 
     @staticmethod
